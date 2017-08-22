@@ -1,42 +1,51 @@
-<h1>Burgers</h1>
+<header>
+  <img src="/images/burger.png" alt="A burger" id="burger-image">
+  <h1>Burgers</h1>
+</header>
 
-<h2>To be eaten:</h2>
+<div id="to-be-eaten" class="page-element">
+  <h2>To be eaten:</h2>
 
-<ul>
-  {{#each burgers}}
-    {{#unless this.devoured}}
-      <li>
-        {{burger_name}}
+  <ul>
+    {{#each burgers}}
+      {{#unless this.devoured}}
+        <li>
+          {{burger_name}}
 
-        <form action="/{{this.id}}?_method=PUT" method="POST">
-          <input type="hidden" name="devoured" value="true">
-          <button type="submit">EAT!</button>
-        </form>
-      </li>
-    {{/unless}}
-  {{/each}}
-</ul>
+          <form action="/{{this.id}}?_method=PUT" method="POST">
+            <input type="hidden" name="devoured" value="true">
+            <button type="submit">EAT!</button>
+          </form>
+        </li>
+      {{/unless}}
+    {{/each}}
+  </ul>
+</div>
 
-<h2>Burgers that have been eaten:</h2>
+<div id="already-eaten" class="page-element">
+  <h2>Burgers that have been eaten:</h2>
 
-<ul>
-  {{#each burgers}}
-    {{#if this.devoured}}
-      <li>
-        {{burger_name}}
+  <ul>
+    {{#each burgers}}
+      {{#if this.devoured}}
+        <li>
+          {{burger_name}}
 
-      </li>
-    {{/if}}
-  {{/each}}
-</ul>
+        </li>
+      {{/if}}
+    {{/each}}
+  </ul>
+</div>
 
-<h2>Add a Burger</h2>
-<form class="create-update-form" action="/" method="POST">
+<div id="add-burger" class="page-element">
+  <h2>Add a Burger</h2>
+  <form class="create-update-form" action="/" method="POST">
 
-  <div class="form-group">
-    <label for="ca">Burger:</label>
-    <input type="text" id="ca" name="burger_name">
-  </div>
+    <div class="form-group">
+      <label for="ca">Burger:</label>
+      <input type="text" id="ca" name="burger_name">
+    </div>
 
-  <button type="submit">Add a Burger</button>
-</form>
+    <button type="submit">Add a Burger</button>
+  </form>
+</div>
