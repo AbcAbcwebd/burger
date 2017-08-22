@@ -18,9 +18,9 @@ app.engine("hbs", hbs({ defaultLayout: "main", extname: 'hbs' }));
 app.set("view engine", "hbs");
 
 // Import routes and give the server access to them.
-//const routes = require("./controllers/burgers_controller.js");
+const routes = require("./controllers/burgers_controller.js");
 
-//app.use("/", routes);
+app.use("/", routes);
 
 var server = app.listen(process.env.PORT || '80', function(){
   console.log('App listening on Port %s', server.address().port);

@@ -27,5 +27,9 @@ router.put("/:id", (req, res) => {
   burger.updateOne({devoured: req.body.devoured }, condition, () => res.redirect("/")); 
 });
 
+router.get("/test", (req, res) => {
+  res.send('<h1>Got it!</h1>');
+});
+
 // Export routes for server.js to use.
 module.exports = router;
